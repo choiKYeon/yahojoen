@@ -8,11 +8,12 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.example.Container.*;
+
 public class MemberController {
-    private static Member checkedmembers = null;
 
     public MemberController() {
-        if (checkedmembers == null) {
+        if (getCheckedmembers() == null) {
             Member member1 = new Member(1, "홍길동", "1234");
             members.add(member1);
             Member member2 = new Member(2, "홍길순", "12345");
@@ -26,7 +27,7 @@ public class MemberController {
     // 로그인
     public void login() {
 
-        if (checkedmembers != null) {
+        if (getCheckedmembers() != null) {
             System.out.println("이미 로그인 되어있습니다.");
             return;
         }
@@ -55,7 +56,7 @@ public class MemberController {
             return;
         }
 
-        checkedmembers = member;
+        setCheckedmembers(member);
 
         System.out.println("로그인 되었습니다." + userId + "님 환영합니다.");
         // MainScreen을 실행하기 위한 코드
@@ -106,8 +107,8 @@ public class MemberController {
     }
 
     public static Member getlogout() {
-        if (checkedmembers != null) {
-            checkedmembers = null;
+        if (getCheckedmembers() != null) {
+            setCheckedmembers(null);
             System.out.println("로그아웃 되었습니다.");
         }
         return null;

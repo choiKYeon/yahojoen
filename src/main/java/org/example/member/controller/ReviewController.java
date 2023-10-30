@@ -8,12 +8,13 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.example.Container.*;
+
 public class ReviewController {
     List<Review> reviews = new ArrayList<>();
     List<Member> members = new ArrayList<>();
 
     public void write(){
-
         long id = 0;
 
         System.out.println("\n== 리뷰를 작성해주세요. ==");
@@ -26,6 +27,6 @@ public class ReviewController {
         reviews.add(review);
 
 
-        System.out.println( "님의 리뷰가 작성되었습니다.");
+        System.out.println(getCheckedmembers() + "님의 리뷰가 작성되었습니다.");
     }
 }
