@@ -3,9 +3,8 @@ package org.example;
 import org.example.area.entity.Mountain;
 
 public class MountainController {
+    Mountain mountain = new Mountain();
         public void gyeonggiDo() {
-
-            Mountain mountain = new Mountain();
 
             while (true) {
                 System.out.println("\n== 경기도 지역의 산을 선택해주세요. ==");
@@ -18,10 +17,13 @@ public class MountainController {
                         mountain.review();
                         break;
                     case "불장산":
+                        mountain.review();
                         break;
                     case "구룡산":
+                        mountain.review();
                         break;
                     case "관악산":
+                        mountain.review();
                         break;
                     default:
                         DefaultCommand.DefaultCommand();
@@ -39,14 +41,19 @@ public class MountainController {
 
                 switch (commandMountain) {
                     case "오대산":
+                        mountain.review();
                         break;
                     case "봉평산":
+                        mountain.review();
                         break;
                     case "설악산":
+                        mountain.review();
                         break;
                     case "태백산":
+                        mountain.review();
                         break;
                     case "속리산":
+                        mountain.review();
                         break;
                     default:
                         DefaultCommand.DefaultCommand();
@@ -65,14 +72,19 @@ public class MountainController {
 
                 switch (commandMountain) {
                     case "계룡산":
+                        mountain.review();
                         break;
                     case "백운산":
+                        mountain.review();
                         break;
                     case "대덕산":
+                        mountain.review();
                         break;
                     case "내장산":
+                        mountain.review();
                         break;
                     case "소백산":
+                        mountain.review();
                         break;
                     default:
                         DefaultCommand.DefaultCommand();
@@ -90,14 +102,19 @@ public class MountainController {
 
                 switch (commandMountain) {
                     case "공주산":
+                        mountain.review();
                         break;
                     case "토함산":
+                        mountain.review();
                         break;
                     case "대왕약산":
+                        mountain.review();
                         break;
                     case "구룡산":
+                        mountain.review();
                         break;
                     case "콘솔산":
+                        mountain.review();
                         break;
                     default:
                         DefaultCommand.DefaultCommand();
@@ -115,14 +132,19 @@ public class MountainController {
 
                 switch (commandMountain) {
                     case "월출산":
+                        mountain.review();
                         break;
                     case "무등산":
+                        mountain.review();
                         break;
                     case "무안고덕산":
+                        mountain.review();
                         break;
                     case "장안산":
+                        mountain.review();
                         break;
                     case "오리유산":
+                        mountain.review();
                         break;
                     default:
                         DefaultCommand.DefaultCommand();
@@ -140,6 +162,7 @@ public class MountainController {
 
                 switch (commandMountain) {
                     case "한라산":
+                        mountain.review();
                         break;
                     default:
                         DefaultCommand.DefaultCommand();
