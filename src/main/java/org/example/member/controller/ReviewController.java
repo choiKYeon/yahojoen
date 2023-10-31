@@ -86,6 +86,7 @@ public class ReviewController {
                 mainScreen.mainSelect();
             }
         }
+
         System.out.println("나의 리뷰 목록이 출력되었습니다. 수정할 리뷰번호를 선택해주세요.");
         System.out.print("입력 :");
         int id = Container.getSc().nextInt();
@@ -118,6 +119,11 @@ public class ReviewController {
     public void remove(Request request) {
         String userId = Container.getCheckedmembers().getUserId();
 
+        if (reviews.size() == 0) {
+            System.out.println("작성한 리뷰가 없습니다.");
+            mainScreen.mainSelect();
+        }
+
         for (int i = 0; i < reviews.size(); i++) {
             Review review = reviews.get(i);
             if (reviews.get(i).getUserId().equals(userId)) {
@@ -128,6 +134,7 @@ public class ReviewController {
                 mainScreen.mainSelect();
             }
         }
+
         System.out.println("나의 리뷰 목록이 출력되었습니다. 삭제할 리뷰번호를 선택해주세요.");
         System.out.print("입력 :");
         int id = Container.getSc().nextInt();

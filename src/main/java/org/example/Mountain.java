@@ -6,9 +6,10 @@ import org.example.MainScreen;
 import org.example.member.controller.ReviewController;
 
 public class Mountain {
-    MainScreen mainScreen = new MainScreen();
+
     ReviewController reviewController = new ReviewController();
     public void review() {
+        MainScreen mainScreen = new MainScreen();
 
         while (true) {
             System.out.println("\n리뷰를 작성하시겠습니까?");
