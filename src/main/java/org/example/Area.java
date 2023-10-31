@@ -1,12 +1,13 @@
 package org.example;
 
-import org.example.Container;
-import org.example.DefaultCommand;
+
+import org.example.entity.Container;
+import org.example.entity.DefaultCommand;
 
 public class Area {
-    MountainController mountainController = new MountainController();
     // 지역을 선택하는 메인화면
     public void areaSelcet(){
+        MountainController mountainController = new MountainController();
 
         while (true) {
             System.out.println("\n== 지역을 선택해주세요. ==");

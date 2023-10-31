@@ -1,7 +1,7 @@
-package org.example.area.entity;
+package org.example;
 
-import org.example.Container;
-import org.example.DefaultCommand;
+import org.example.entity.Container;
+import org.example.entity.DefaultCommand;
 import org.example.MainScreen;
 import org.example.member.controller.ReviewController;
 

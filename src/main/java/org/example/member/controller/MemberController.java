@@ -1,14 +1,13 @@
 package org.example.member.controller;
 
-import org.example.Container;
+import org.example.entity.Container;
 import org.example.MainScreen;
 import org.example.member.entity.Member;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.example.Container.*;
+import static org.example.entity.Container.*;
 
 public class MemberController {
 
@@ -107,6 +106,7 @@ public class MemberController {
     }
 
     public static Member getlogout() {
+
         if (getCheckedmembers() != null) {
             setCheckedmembers(null);
             System.out.println("로그아웃 되었습니다.");

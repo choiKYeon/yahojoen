@@ -1,6 +1,7 @@
 package org.example;
 
-import org.example.area.entity.Mountain;
+import org.example.entity.Container;
+import org.example.entity.DefaultCommand;
 
 public class MountainController {
     Mountain mountain = new Mountain();
