@@ -2,7 +2,6 @@ package org.example.member.controller;
 
 import org.example.entity.Container;
 import org.example.MainScreen;
-import org.example.entity.Request;
 import org.example.member.entity.Member;
 import org.example.member.entity.Review;
 
@@ -67,7 +66,7 @@ public class ReviewController {
         mainScreen.mainSelect();
     }
 
-    public void modify(Request request) {
+    public void modify() {
 
         String userId = Container.getCheckedmembers().getUserId();
 
@@ -116,7 +115,7 @@ public class ReviewController {
         mainScreen.mainSelect();
     }
 
-    public void remove(Request request) {
+    public void remove() {
         String userId = Container.getCheckedmembers().getUserId();
 
         if (reviews.size() == 0) {

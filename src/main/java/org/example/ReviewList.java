@@ -2,7 +2,6 @@ package org.example;
 
 import org.example.entity.Container;
 import org.example.entity.DefaultCommand;
-import org.example.entity.Request;
 import org.example.member.controller.ReviewController;
 
 public class ReviewList {
@@ -15,7 +14,7 @@ public class ReviewList {
             System.out.println("\n 1.전체리뷰 / 2.나의리뷰 / 3.리뷰수정 / 4.리뷰삭제 / 5.메인화면");
             System.out.print("입력 :");
             String commandReview = Container.getSc().nextLine().trim();
-            Request request = new Request(commandReview);
+
             switch (commandReview){
                 case "전체리뷰":
                     reviewController.fullReview();
@@ -24,10 +23,10 @@ public class ReviewList {
                     reviewController.myReview();
                     break;
                 case "리뷰수정":
-                    reviewController.modify(request);
+                    reviewController.modify();
                     break;
                 case "리뷰삭제":
-                    reviewController.remove(request);
+                    reviewController.remove();
                     break;
                 case "메인화면":
                     mainScreen.mainSelect();
