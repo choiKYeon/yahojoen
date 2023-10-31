@@ -48,6 +48,7 @@ public class ReviewController {
         if (reviews.size() == 0) {
             System.out.println("작성한 리뷰가 없습니다.");
             mainScreen.mainSelect();
+            return;
         }
         String userId = Container.getCheckedmembers().getUserId();
         System.out.println("리뷰 번호 / 제목 / 내용 / 작성자");
@@ -60,6 +61,7 @@ public class ReviewController {
             if (reviews.get(i).getUserId().equals(userId) == false){
                 System.out.println("작성한 리뷰가 없습니다.");
                 mainScreen.mainSelect();
+                return;
             }
         }
         System.out.println("나의 리뷰 목록이 출력되었습니다.");
@@ -73,6 +75,7 @@ public class ReviewController {
         if (reviews.size() == 0) {
             System.out.println("작성한 리뷰가 없습니다.");
             mainScreen.mainSelect();
+            return;
         }
 
         for (int i = 0; i < reviews.size(); i++) {
@@ -83,6 +86,7 @@ public class ReviewController {
             if (reviews.get(i).getUserId().equals(userId) == false){
                 System.out.println("작성한 리뷰가 없습니다.");
                 mainScreen.mainSelect();
+                return;
             }
         }
 
@@ -121,6 +125,7 @@ public class ReviewController {
         if (reviews.size() == 0) {
             System.out.println("작성한 리뷰가 없습니다.");
             mainScreen.mainSelect();
+            return;
         }
 
         for (int i = 0; i < reviews.size(); i++) {
@@ -131,6 +136,7 @@ public class ReviewController {
             if (reviews.get(i).getUserId().equals(userId) == false){
                 System.out.println("작성한 리뷰가 없습니다.");
                 mainScreen.mainSelect();
+                return;
             }
         }
 
