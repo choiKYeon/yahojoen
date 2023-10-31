@@ -3,6 +3,8 @@ package org.example.member.controller;
 import org.example.entity.Container;
 import org.example.MainScreen;
 import org.example.member.entity.Member;
+import org.example.member.service.MemberService;
+import org.example.review.service.ReviewService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,18 +13,8 @@ import static org.example.entity.Container.*;
 
 public class MemberController {
 
-    public MemberController() {
-        if (getCheckedmembers() == null) {
-            Member member1 = new Member(1, "홍길동", "1234");
-            members.add(member1);
-            Member member2 = new Member(2, "홍길순", "12345");
-            members.add(member2);
-            Member member3 = new Member(3, "임꺽정", "123456");
-            members.add(member3);
-        }
-    }
-    List<Member> members = new ArrayList<>();
-
+    private static MainScreen mainScreen = new MainScreen();
+    MemberService memberService = new MemberService();
     // 로그인
     public void login() {
 
@@ -31,22 +23,15 @@ public class MemberController {
             return;
         }
 
-        MainScreen mainScreen = new MainScreen();
-        boolean userIdcheked = false;
-        Member member = null;
 
         System.out.print("아이디 :");
         String userId = Container.getSc().nextLine().trim();
         System.out.print("비밀번호 :");
         String password = Container.getSc().nextLine().trim();
 
-        for (int i = 0; i < members.size(); i++) {
-            if (members.get(i).getUserId().equals(userId)) {
-                member = members.get(i);
-                userIdcheked = true;
-            }
-        }
-        if (userIdcheked == false) {
+        Member member = memberService.findByUserId(userId);
+
+        if (member == null) {
             System.out.println("존재하지 않는 아이디입니다. 다시 입력해주세요.");
             return;
         }
@@ -55,9 +40,9 @@ public class MemberController {
             return;
         }
 
-        setCheckedmembers(member);
+        Container.setCheckedmembers(member);
 
-        System.out.println("로그인 되었습니다." + userId + "님 환영합니다.");
+        System.out.println("로그인 되었습니다." + Container.getCheckedmembers().getUserId() + "님 환영합니다.");
         // MainScreen을 실행하기 위한 코드
         mainScreen.mainSelect();
     }
@@ -74,12 +59,9 @@ public class MemberController {
             userId = Container.getSc().nextLine().trim();
             boolean loginchecked = false;
 
-            for (int i = 0; i < members.size(); i++) {
-                if (members.get(i).getUserId().equals(userId)) {
-                    loginchecked = true;
-                }
-            }
-            if (loginchecked != false) {
+            Member member = memberService.findByUserId(userId);
+
+            if (member != null) {
                 System.out.println("이미 존재하는 아이디 입니다. 다시 입력해주세요.");
                 continue;
             }
@@ -100,8 +82,8 @@ public class MemberController {
             }
             break;
         }
-        Member member = new Member(id, userId, password);
-        members.add(member);
+
+        memberService.signService(userId, password);
         System.out.println("회원가입이 완료되었습니다. 로그인을 진행해주세요.");
     }
 

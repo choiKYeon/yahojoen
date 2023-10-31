@@ -1,5 +1,6 @@
 package org.example.member.entity;
 
+import jdk.jshell.execution.Util;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +11,8 @@ public class Member {
     private long id;
     private String userId;
     private String password;
-    public  Member(long id, String userId, String password){
+    private Util nowDateTime;
+    public  Member(long id, String userId, String password, String nowDateTime){
         this.id = id;
         this.userId = userId;
         this.password = password;

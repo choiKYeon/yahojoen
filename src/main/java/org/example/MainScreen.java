@@ -3,7 +3,7 @@ package org.example;
 import org.example.entity.Container;
 import org.example.entity.DefaultCommand;
 import org.example.member.controller.MemberController;
-import org.example.member.controller.ReviewController;
+import org.example.review.controller.ReviewController;
 
 public class MainScreen {
     MemberController memberController = new MemberController();

@@ -2,8 +2,7 @@ package org.example;
 
 import org.example.entity.Container;
 import org.example.entity.DefaultCommand;
-import org.example.MainScreen;
-import org.example.member.controller.ReviewController;
+import org.example.review.controller.ReviewController;
 
 public class Mountain {
 
