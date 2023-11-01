@@ -2,6 +2,7 @@ package org.example.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.example.DB.DBConnection;
 import org.example.member.entity.Member;
 
 import java.util.Scanner;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 @Setter
 
 public class Container {
+    private static DBConnection dbConnection;
     private static Member checkedmembers = null;
 
     private static Scanner sc;
@@ -29,5 +31,11 @@ public class Container {
 
     public static void setCheckedmembers(Member checkedmembers) {
         Container.checkedmembers = checkedmembers;
+    }
+    public static DBConnection getDBconnection() {
+        if (dbConnection == null) {
+            dbConnection = new DBConnection();
+        }
+        return dbConnection;
     }
 }

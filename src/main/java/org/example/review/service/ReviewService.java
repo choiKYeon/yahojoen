@@ -5,49 +5,32 @@ import lombok.Setter;
 import org.example.entity.Container;
 import org.example.member.entity.Member;
 import org.example.review.entity.Review;
+import org.example.review.repository.ReviewRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 @Getter
 @Setter
 public class ReviewService {
-    private static List<Review> reviews = new ArrayList<>();
-    List<Member> members = new ArrayList<>();
-
-    public static List<Review> getReviews() {
-        return reviews;
-    }
-    public static void setReviews(List<Review> reviews) {
-        ReviewService.reviews = reviews;
-    }
+    ReviewRepository reviewRepository = new ReviewRepository();
 
     public void writeService(long id, String title, String content, String userId){
-
-        Review review = new Review(id, title, content, userId);
-        reviews.add(review);
-
+        reviewRepository.writeRepository(id, title, content, userId);
     }
     public void listService(){
+        reviewRepository.listRepository();
 
-        for (int i = 0; i < reviews.size(); i++) {
-            Review review = reviews.get(i);
-            System.out.printf("%d, %s, %s, %s\n", review.getId(), review.getTitle(), review.getContent(), review.getUserId());
-        }
     }
     public void modifyService(Review review, String modifyTitle, String modifyContent){
-        review.setTitle(modifyTitle);
-        review.setContent(modifyContent);
+        reviewRepository.modifyRepository(review, modifyTitle, modifyContent);
+
     }
     public void removeService(Review review){
-        reviews.remove(review);
+        reviewRepository.removeRepository(review);
+
     }
 
     public Review getfindByIdService(int id) {
-        for (Review review : reviews) {
-            if (review.getId() == id) {
-                return review;
-            }
-        }
-        return null;
+        return reviewRepository.getfindByIdRepository(id);
     }
 }

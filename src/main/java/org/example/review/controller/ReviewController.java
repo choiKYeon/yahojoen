@@ -1,17 +1,14 @@
 package org.example.review.controller;
 
 import org.example.entity.Container;
-import org.example.MainScreen;
-import org.example.member.entity.Member;
+import org.example.review.repository.ReviewRepository;
+import org.example.screenselect.MainScreen;
 import org.example.review.entity.Review;
 import org.example.review.service.ReviewService;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 
 public class ReviewController {
+    ReviewRepository reviewRepository = new ReviewRepository();
     private static long id = 1;
     private static MainScreen mainScreen = new MainScreen();
     ReviewService reviewService = new ReviewService();
@@ -45,7 +42,7 @@ public class ReviewController {
 
     public void myReview() {
 
-        if (reviewService.getReviews().size() == 0) {
+        if (reviewRepository.getReviews().size() == 0) {
             System.out.println("작성한 리뷰가 없습니다.");
             mainScreen.mainSelect();
             return;
@@ -54,16 +51,14 @@ public class ReviewController {
         System.out.println("리뷰 번호 / 제목 / 내용 / 작성자");
         System.out.println("-".repeat(29));
 
-        for (int i = 0; i < reviewService.getReviews().size(); i++) {
-            Review review = reviewService.getReviews().get(i);
-            if (reviewService.getReviews().get(i).getUserId().equals(userId)) {
+        for (int i = 0; i < reviewRepository.getReviews().size(); i++) {
+            Review review = reviewRepository.getReviews().get(i);
+            if (review.getUserId().equals(userId)) {
                 System.out.printf("%d, %s, %s, %s\n", review.getId(), review.getTitle(), review.getContent(), review.getUserId());
-            }
-            if (reviewService.getReviews().get(i).getUserId().equals(userId) == false){
+            } else {
                 System.out.println("작성한 리뷰가 없습니다.");
                 mainScreen.mainSelect();
                 return;
-
             }
         }
         System.out.println("나의 리뷰 목록이 출력되었습니다.");
@@ -73,7 +68,7 @@ public class ReviewController {
     public void modify() {
         String userId = Container.getCheckedmembers().getUserId();
 
-        if (reviewService.getReviews().size() == 0) {
+        if (reviewRepository.getReviews().size() == 0) {
             System.out.println("작성한 리뷰가 없습니다.");
             mainScreen.mainSelect();
             return;
@@ -81,12 +76,12 @@ public class ReviewController {
 
         System.out.println("리뷰 번호 / 제목 / 내용 / 작성자");
         System.out.println("-".repeat(29));
-        for (int i = 0; i < reviewService.getReviews().size(); i++) {
-            Review review = reviewService.getReviews().get(i);
-            if (reviewService.getReviews().get(i).getUserId().equals(userId)) {
+        for (int i = 0; i < reviewRepository.getReviews().size(); i++) {
+            Review review = reviewRepository.getReviews().get(i);
+            if (reviewRepository.getReviews().get(i).getUserId().equals(userId)) {
                 System.out.printf("%d, %s, %s, %s\n", review.getId(), review.getTitle(), review.getContent(), review.getUserId());
             }
-            if (reviewService.getReviews().get(i).getUserId().equals(userId) == false){
+            if (reviewRepository.getReviews().get(i).getUserId().equals(userId) == false){
                 System.out.println("작성한 리뷰가 없습니다.");
                 mainScreen.mainSelect();
                 return;
@@ -125,7 +120,7 @@ public class ReviewController {
     public void remove() {
         String userId = Container.getCheckedmembers().getUserId();
 
-        if (reviewService.getReviews().size() == 0) {
+        if (reviewRepository.getReviews().size() == 0) {
             System.out.println("작성한 리뷰가 없습니다.");
             mainScreen.mainSelect();
             return;
@@ -133,12 +128,12 @@ public class ReviewController {
 
         System.out.println("리뷰 번호 / 제목 / 내용 / 작성자");
         System.out.println("-".repeat(29));
-        for (int i = 0; i < reviewService.getReviews().size(); i++) {
-            Review review = reviewService.getReviews().get(i);
-            if (reviewService.getReviews().get(i).getUserId().equals(userId)) {
+        for (int i = 0; i < reviewRepository.getReviews().size(); i++) {
+            Review review = reviewRepository.getReviews().get(i);
+            if (reviewRepository.getReviews().get(i).getUserId().equals(userId)) {
                 System.out.printf("%d, %s, %s, %s\n", review.getId(), review.getTitle(), review.getContent(), review.getUserId());
             }
-            if (reviewService.getReviews().get(i).getUserId().equals(userId) == false){
+            if (reviewRepository.getReviews().get(i).getUserId().equals(userId) == false){
                 System.out.println("작성한 리뷰가 없습니다.");
                 mainScreen.mainSelect();
                 return;

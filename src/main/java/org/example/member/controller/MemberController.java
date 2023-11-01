@@ -1,13 +1,9 @@
 package org.example.member.controller;
 
 import org.example.entity.Container;
-import org.example.MainScreen;
+import org.example.screenselect.MainScreen;
 import org.example.member.entity.Member;
 import org.example.member.service.MemberService;
-import org.example.review.service.ReviewService;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.example.entity.Container.*;
 
