@@ -1,5 +1,6 @@
 package org.example.review.repository;
 
+import lombok.Getter;
 import org.example.entity.Container;
 import org.example.member.entity.Member;
 import org.example.review.entity.Review;
@@ -9,12 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReviewRepository {
+    @Getter
     private static List<Review> reviews = new ArrayList<>();
     List<Member> members = new ArrayList<>();
 
-    public static List<Review> getReviews() {
-        return reviews;
-    }
     public static void setReviews(List<Review> reviews) {
         ReviewRepository.reviews = reviews;
     }

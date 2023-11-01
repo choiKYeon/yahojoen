@@ -10,11 +10,11 @@ public class MemberRepository {
     List<Member> members = new ArrayList<>();
 
     public MemberRepository(){
-        Member member1 = new Member(1, "홍길동", "1234", Utill.nowDateTime());
+        Member member1 = new Member(1, "경현잉", "11", Utill.nowDateTime());
         members.add(member1);
-        Member member2 = new Member(2, "홍길순", "12345", Utill.nowDateTime());
+        Member member2 = new Member(2, "병근잉", "11", Utill.nowDateTime());
         members.add(member2);
-        Member member3 = new Member(3, "임꺽정", "123456", Utill.nowDateTime());
+        Member member3 = new Member(3, "조은잉", "11", Utill.nowDateTime());
         members.add(member3);
     }
     public String signRepository(String userId, String password){
