@@ -4,7 +4,7 @@ import org.example.entity.Container;
 import org.example.entity.DefaultCommand;
 
 public class MountainController {
-    Mountain mountain = new Mountain();
+    Answer answer = new Answer();
         public void gyeonggiDo() {
 
             while (true) {
@@ -15,16 +15,16 @@ public class MountainController {
 
                 switch (commandMountain) {
                     case "청계산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "불장산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "구룡산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "관악산":
-                        mountain.review();
+                        answer.review();
                         break;
                     default:
                         DefaultCommand.DefaultCommand();
@@ -42,19 +42,19 @@ public class MountainController {
 
                 switch (commandMountain) {
                     case "오대산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "봉평산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "설악산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "태백산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "속리산":
-                        mountain.review();
+                        answer.review();
                         break;
                     default:
                         DefaultCommand.DefaultCommand();
@@ -73,19 +73,19 @@ public class MountainController {
 
                 switch (commandMountain) {
                     case "계룡산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "백운산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "대덕산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "내장산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "소백산":
-                        mountain.review();
+                        answer.review();
                         break;
                     default:
                         DefaultCommand.DefaultCommand();
@@ -103,19 +103,19 @@ public class MountainController {
 
                 switch (commandMountain) {
                     case "공주산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "토함산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "대왕약산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "구룡산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "콘솔산":
-                        mountain.review();
+                        answer.review();
                         break;
                     default:
                         DefaultCommand.DefaultCommand();
@@ -133,19 +133,19 @@ public class MountainController {
 
                 switch (commandMountain) {
                     case "월출산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "무등산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "무안고덕산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "장안산":
-                        mountain.review();
+                        answer.review();
                         break;
                     case "오리유산":
-                        mountain.review();
+                        answer.review();
                         break;
                     default:
                         DefaultCommand.DefaultCommand();
@@ -163,7 +163,7 @@ public class MountainController {
 
                 switch (commandMountain) {
                     case "한라산":
-                        mountain.review();
+                        answer.review();
                         break;
                     default:
                         DefaultCommand.DefaultCommand();

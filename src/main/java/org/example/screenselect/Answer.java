@@ -4,7 +4,7 @@ import org.example.entity.Container;
 import org.example.entity.DefaultCommand;
 import org.example.review.controller.ReviewController;
 
-public class Mountain {
+public class Answer {
 
     ReviewController reviewController = new ReviewController();
     public void review() {
