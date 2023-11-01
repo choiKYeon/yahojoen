@@ -18,7 +18,7 @@ public class MemberRepository {
         members.add(member3);
     }
     public String signRepository(String userId, String password){
-        long id = 3;
+        int id = 3;
         Member member = new Member(id, userId, password, Utill.nowDateTime());
         id++;
         members.add(member);

@@ -45,16 +45,16 @@ public class ReviewRepository {
         return null;
     }
     public void myReviewListRepository(){
+
         String userId = Container.getCheckedmembers().getUserId();
+
         System.out.println("리뷰 번호 / 제목 / 내용 / 작성자");
         System.out.println("-".repeat(29));
+
         for (int i = 0; i < reviews.size(); i++) {
             Review review = reviews.get(i);
             if (reviews.get(i).getUserId().equals(userId)) {
                 System.out.printf("%d, %s, %s, %s\n", review.getId(), review.getTitle(), review.getContent(), review.getUserId());
-            } else {
-                System.out.println("작성한 리뷰가 없습니다.");
-                return;
             }
         }
     }

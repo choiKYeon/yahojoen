@@ -8,11 +8,11 @@ import lombok.Setter;
 @Setter
 
 public class Member {
-    private long id;
+    private int id;
     private String userId;
     private String password;
     private Util nowDateTime;
-    public  Member(long id, String userId, String password, String nowDateTime){
+    public  Member(int id, String userId, String password, String nowDateTime){
         this.id = id;
         this.userId = userId;
         this.password = password;
