@@ -51,7 +51,6 @@ public class ReviewController {
         for (int i = 0; i < reviewRepository.getReviews().size(); i++) {
             if (ReviewRepository.getReviews().get(i).getUserId().equals(Container.getCheckedmembers().getUserId()) == false) {
                 System.out.println("작성한 리뷰가 없습니다.");
-                return;
             }
         }
         System.out.println("나의 리뷰 목록이 출력되었습니다.");
@@ -112,7 +111,6 @@ public class ReviewController {
         for (int i = 0; i < reviewRepository.getReviews().size(); i++) {
             if (ReviewRepository.getReviews().get(i).getUserId().equals(Container.getCheckedmembers().getUserId()) == false) {
                 System.out.println("작성한 리뷰가 없습니다.");
-
             } else {
                 System.out.println("나의 리뷰 목록이 출력되었습니다. 삭제할 리뷰번호를 선택해주세요.");
                 System.out.print("입력 :");
