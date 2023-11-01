@@ -23,13 +23,13 @@ public class MainScreen {
                     area.areaSelcet();
                     break;
                 case "로그아웃":
-                    memberController.getlogout();
+                    memberController.logout();
                     break;
                 case "리뷰목록":
                     reviewList.reviewSelect();
                     break;
                 default:
-                    DefaultCommand.DefaultCommand();
+                    DefaultCommand.defaultError();
                     continue;
             }
             break;

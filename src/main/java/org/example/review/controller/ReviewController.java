@@ -1,6 +1,7 @@
 package org.example.review.controller;
 
 import org.example.entity.Container;
+import org.example.entity.DefaultCommand;
 import org.example.review.repository.ReviewRepository;
 import org.example.screenselect.MainScreen;
 import org.example.review.entity.Review;
@@ -29,6 +30,7 @@ public class ReviewController {
 
         mainScreen.mainSelect();
     }
+
     public void fullReview() {
         System.out.println("리뷰 번호 / 제목 / 내용 / 작성자");
         System.out.println("-".repeat(29));
@@ -38,12 +40,11 @@ public class ReviewController {
         System.out.println("리뷰 목록이 출력되었습니다.");
         mainScreen.mainSelect();
     }
+
     public void myReview() {
 
         if (reviewRepository.getReviews().size() == 0) {
             System.out.println("작성한 리뷰가 없습니다.");
-            mainScreen.mainSelect();
-            return;
         }
 
         reviewService.myReviewListService();
@@ -51,16 +52,18 @@ public class ReviewController {
         for (int i = 0; i < reviewRepository.getReviews().size(); i++) {
             if (ReviewRepository.getReviews().get(i).getUserId().equals(Container.getCheckedmembers().getUserId()) == false) {
                 System.out.println("작성한 리뷰가 없습니다.");
+            } else {
+                System.out.println("나의 리뷰 목록이 출력되었습니다.");
             }
+            break;
         }
-        System.out.println("나의 리뷰 목록이 출력되었습니다.");
         mainScreen.mainSelect();
     }
+
     public void modify() {
 
         if (reviewRepository.getReviews().size() == 0) {
             System.out.println("작성한 리뷰가 없습니다.");
-            mainScreen.mainSelect();
             return;
         }
         reviewService.myReviewListService();
@@ -70,9 +73,19 @@ public class ReviewController {
                 System.out.println("작성한 리뷰가 없습니다.");
             } else {
                 System.out.println("나의 리뷰 목록이 출력되었습니다. 수정할 리뷰번호를 선택해주세요.");
-                System.out.print("입력 :");
-                int id = Container.getSc().nextInt();
-                Container.getSc().nextLine().trim();
+
+
+                int id;
+                while (true) {
+                    System.out.print("입력 :");
+                    try {
+                        id = Integer.parseInt(Container.getSc().nextLine().trim());
+                    } catch (NumberFormatException e) {
+                        System.out.println("숫자(번호)를 입력해주세요.");
+                        continue;
+                    }
+                    break;
+                }
 
                 Review review = reviewService.getfindByIdService(id);
 
@@ -94,15 +107,16 @@ public class ReviewController {
                 reviewService.modifyService(review, modifyTitle, modifyContent);
 
                 System.out.println(id + "번 리뷰가 수정되었습니다.");
+
             }
         }
         mainScreen.mainSelect();
     }
+
     public void remove() {
 
         if (reviewRepository.getReviews().size() == 0) {
             System.out.println("작성한 리뷰가 없습니다.");
-            mainScreen.mainSelect();
             return;
         }
 
@@ -111,10 +125,22 @@ public class ReviewController {
         for (int i = 0; i < reviewRepository.getReviews().size(); i++) {
             if (ReviewRepository.getReviews().get(i).getUserId().equals(Container.getCheckedmembers().getUserId()) == false) {
                 System.out.println("작성한 리뷰가 없습니다.");
+                return;
             } else {
                 System.out.println("나의 리뷰 목록이 출력되었습니다. 삭제할 리뷰번호를 선택해주세요.");
-                System.out.print("입력 :");
-                int id = Container.getSc().nextInt();
+
+
+                int id;
+                while (true) {
+                    System.out.print("입력 :");
+                    try {
+                        id = Integer.parseInt(Container.getSc().nextLine().trim());
+                    } catch (NumberFormatException e) {
+                        System.out.println("숫자(번호)를 입력해주세요.");
+                        continue;
+                    }
+                    break;
+                }
 
                 Review review = reviewService.getfindByIdService(id);
 
@@ -126,8 +152,6 @@ public class ReviewController {
                 reviewService.removeService(review);
 
                 System.out.println(id + "번 리뷰가 삭제되었습니다.");
-
-                Container.getSc().nextLine().trim();
             }
         }
         mainScreen.mainSelect();

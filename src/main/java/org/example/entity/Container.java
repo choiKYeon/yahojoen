@@ -7,11 +7,12 @@ import org.example.member.entity.Member;
 
 import java.util.Scanner;
 
-@Getter
-@Setter
+
 
 public class Container {
     private static DBConnection dbConnection;
+    @Getter
+    @Setter
     private static Member checkedmembers = null;
 
     private static Scanner sc;
@@ -25,13 +26,6 @@ public class Container {
         return sc;
     }
 
-    public static Member getCheckedmembers() {
-        return checkedmembers;
-    }
-
-    public static void setCheckedmembers(Member checkedmembers) {
-        Container.checkedmembers = checkedmembers;
-    }
     public static DBConnection getDBconnection() {
         if (dbConnection == null) {
             dbConnection = new DBConnection();

@@ -6,7 +6,7 @@ import org.example.entity.DefaultCommand;
 
 public class Area {
     // 지역을 선택하는 메인화면
-    public void areaSelcet(){
+    public void areaSelcet() {
         MountainController mountainController = new MountainController();
 
         while (true) {
@@ -35,7 +35,8 @@ public class Area {
                     mountainController.jejuDo();
                     break;
                 default:
-                    DefaultCommand.DefaultCommand();
+                    System.out.println();
+                    DefaultCommand.areaDeafaultCommand();
                     continue;
             }
             break;

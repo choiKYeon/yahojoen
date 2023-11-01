@@ -32,7 +32,7 @@ public class ReviewList {
                     mainScreen.mainSelect();
                     break;
                 default:
-                    DefaultCommand.DefaultCommand();
+                    DefaultCommand.defaultError();
                     continue;
             }
             break;

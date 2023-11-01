@@ -27,7 +27,7 @@ public class MountainController {
                         answer.review();
                         break;
                     default:
-                        DefaultCommand.DefaultCommand();
+                        DefaultCommand.mountainDeafaultCommand();
                         continue;
                 }
                 break;
@@ -57,7 +57,7 @@ public class MountainController {
                         answer.review();
                         break;
                     default:
-                        DefaultCommand.DefaultCommand();
+                        DefaultCommand.mountainDeafaultCommand();
                         continue;
                 }
                 break;
@@ -88,7 +88,7 @@ public class MountainController {
                         answer.review();
                         break;
                     default:
-                        DefaultCommand.DefaultCommand();
+                        DefaultCommand.mountainDeafaultCommand();
                         continue;
                 }
                 break;
@@ -118,7 +118,7 @@ public class MountainController {
                         answer.review();
                         break;
                     default:
-                        DefaultCommand.DefaultCommand();
+                        DefaultCommand.mountainDeafaultCommand();
                         continue;
                 }
                 break;
@@ -148,7 +148,7 @@ public class MountainController {
                         answer.review();
                         break;
                     default:
-                        DefaultCommand.DefaultCommand();
+                        DefaultCommand.mountainDeafaultCommand();
                         continue;
                 }
                 break;
@@ -166,7 +166,7 @@ public class MountainController {
                         answer.review();
                         break;
                     default:
-                        DefaultCommand.DefaultCommand();
+                        DefaultCommand.mountainDeafaultCommand();
                         continue;
                 }
                 break;
