@@ -11,6 +11,7 @@ public class ReviewController {
     private static long id = 1;
     private static MainScreen mainScreen = new MainScreen();
     ReviewService reviewService = new ReviewService();
+
     public void write() {
 
         System.out.println("\n== 리뷰를 작성해주세요. ==");
@@ -28,6 +29,7 @@ public class ReviewController {
 
         mainScreen.mainSelect();
     }
+
     public void fullReview() {
         System.out.println("리뷰 번호 / 제목 / 내용 / 작성자");
         System.out.println("-".repeat(29));
@@ -37,6 +39,7 @@ public class ReviewController {
         System.out.println("리뷰 목록이 출력되었습니다.");
         mainScreen.mainSelect();
     }
+
     public void myReview() {
 
         if (reviewRepository.getReviews().size() == 0) {
@@ -47,10 +50,12 @@ public class ReviewController {
 
         reviewService.myReviewListService();
 
+        defaultReview();
 
         System.out.println("나의 리뷰 목록이 출력되었습니다.");
         mainScreen.mainSelect();
     }
+
     public void modify() {
 
         if (reviewRepository.getReviews().size() == 0) {
@@ -61,34 +66,37 @@ public class ReviewController {
 
         reviewService.myReviewListService();
 
-        System.out.println("나의 리뷰 목록이 출력되었습니다. 수정할 리뷰번호를 선택해주세요.");
-        System.out.print("입력 :");
-        int id = Container.getSc().nextInt();
-        Container.getSc().nextLine().trim();
+        defaultReview();
 
-        Review review = reviewService.getfindByIdService(id);
+            System.out.println("나의 리뷰 목록이 출력되었습니다. 수정할 리뷰번호를 선택해주세요.");
+            System.out.print("입력 :");
+            int id = Container.getSc().nextInt();
+            Container.getSc().nextLine().trim();
 
-        if (review == null) {
-            System.out.println("다시 입력해주세요");
-            return;
+            Review review = reviewService.getfindByIdService(id);
+
+            if (review == null) {
+                System.out.println("다시 입력해주세요");
+                return;
+            }
+
+            System.out.printf("기존 제목 : %s\n", review.getTitle());
+            System.out.printf("제목 : ");
+
+            String modifyTitle = Container.getSc().nextLine().trim();
+
+            System.out.printf("기존 내용 : %s\n", review.getContent());
+            System.out.printf("내용 : ");
+
+            String modifyContent = Container.getSc().nextLine().trim();
+
+            reviewService.modifyService(review, modifyTitle, modifyContent);
+
+            System.out.println(id + "번 리뷰가 수정되었습니다.");
+
+            mainScreen.mainSelect();
         }
 
-        System.out.printf("기존 제목 : %s\n", review.getTitle());
-        System.out.printf("제목 : ");
-
-        String modifyTitle = Container.getSc().nextLine().trim();
-
-        System.out.printf("기존 내용 : %s\n", review.getContent());
-        System.out.printf("내용 : ");
-
-        String modifyContent = Container.getSc().nextLine().trim();
-
-        reviewService.modifyService(review, modifyTitle, modifyContent);
-
-        System.out.println(id + "번 리뷰가 수정되었습니다.");
-
-        mainScreen.mainSelect();
-    }
     public void remove() {
 
         if (reviewRepository.getReviews().size() == 0) {
@@ -98,6 +106,8 @@ public class ReviewController {
         }
 
         reviewService.myReviewListService();
+
+        defaultReview();
 
         System.out.println("나의 리뷰 목록이 출력되었습니다. 삭제할 리뷰번호를 선택해주세요.");
         System.out.print("입력 :");
@@ -117,4 +127,15 @@ public class ReviewController {
         Container.getSc().nextLine().trim();
         mainScreen.mainSelect();
     }
+    public void defaultReview() {
+        for (int i = 0; i < reviewRepository.getReviews().size(); i++) {
+            if (ReviewRepository.getReviews().get(i).getUserId().equals(Container.getCheckedmembers().getUserId()) == false) {
+                System.out.println("작성한 리뷰가 없습니다.");
+                // 메인화면으로 가게 수정하기 및 방법 찾기
+                return;
+            }
+        }
+    }
 }
+
+
