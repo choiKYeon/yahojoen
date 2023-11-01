@@ -33,4 +33,7 @@ public class ReviewService {
     public Review getfindByIdService(int id) {
         return reviewRepository.getfindByIdRepository(id);
     }
+    public void myReviewListService(){
+        reviewRepository.myReviewListRepository();
+    }
 }

@@ -47,20 +47,21 @@ public class ReviewController {
             mainScreen.mainSelect();
             return;
         }
-        String userId = Container.getCheckedmembers().getUserId();
-        System.out.println("리뷰 번호 / 제목 / 내용 / 작성자");
-        System.out.println("-".repeat(29));
-
-        for (int i = 0; i < reviewRepository.getReviews().size(); i++) {
-            Review review = reviewRepository.getReviews().get(i);
-            if (review.getUserId().equals(userId)) {
-                System.out.printf("%d, %s, %s, %s\n", review.getId(), review.getTitle(), review.getContent(), review.getUserId());
-            } else {
-                System.out.println("작성한 리뷰가 없습니다.");
-                mainScreen.mainSelect();
-                return;
-            }
-        }
+        reviewService.myReviewListService();
+//        String userId = Container.getCheckedmembers().getUserId();
+//        System.out.println("리뷰 번호 / 제목 / 내용 / 작성자");
+//        System.out.println("-".repeat(29));
+//
+//        for (int i = 0; i < reviewRepository.getReviews().size(); i++) {
+//            Review review = reviewRepository.getReviews().get(i);
+//            if (review.getUserId().equals(userId)) {
+//                System.out.printf("%d, %s, %s, %s\n", review.getId(), review.getTitle(), review.getContent(), review.getUserId());
+//            } else {
+//                System.out.println("작성한 리뷰가 없습니다.");
+//                mainScreen.mainSelect();
+//                return;
+//            }
+//        }
         System.out.println("나의 리뷰 목록이 출력되었습니다.");
         mainScreen.mainSelect();
     }
@@ -80,8 +81,7 @@ public class ReviewController {
             Review review = reviewRepository.getReviews().get(i);
             if (reviewRepository.getReviews().get(i).getUserId().equals(userId)) {
                 System.out.printf("%d, %s, %s, %s\n", review.getId(), review.getTitle(), review.getContent(), review.getUserId());
-            }
-            if (reviewRepository.getReviews().get(i).getUserId().equals(userId) == false){
+            } else {
                 System.out.println("작성한 리뷰가 없습니다.");
                 mainScreen.mainSelect();
                 return;
@@ -118,7 +118,7 @@ public class ReviewController {
     }
 
     public void remove() {
-        String userId = Container.getCheckedmembers().getUserId();
+
 
         if (reviewRepository.getReviews().size() == 0) {
             System.out.println("작성한 리뷰가 없습니다.");
@@ -126,14 +126,14 @@ public class ReviewController {
             return;
         }
 
+        String userId = Container.getCheckedmembers().getUserId();
         System.out.println("리뷰 번호 / 제목 / 내용 / 작성자");
         System.out.println("-".repeat(29));
         for (int i = 0; i < reviewRepository.getReviews().size(); i++) {
             Review review = reviewRepository.getReviews().get(i);
             if (reviewRepository.getReviews().get(i).getUserId().equals(userId)) {
                 System.out.printf("%d, %s, %s, %s\n", review.getId(), review.getTitle(), review.getContent(), review.getUserId());
-            }
-            if (reviewRepository.getReviews().get(i).getUserId().equals(userId) == false){
+            } else {
                 System.out.println("작성한 리뷰가 없습니다.");
                 mainScreen.mainSelect();
                 return;
