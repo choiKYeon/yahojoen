@@ -18,6 +18,9 @@ public class ReviewRepository {
         ReviewRepository.reviews = reviews;
     }
     public void writeRepository(long id, String title, String content, String userId){
+
+
+
         Review review = new Review(id, title, content, userId);
         reviews.add(review);
     }

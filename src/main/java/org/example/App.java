@@ -8,7 +8,7 @@ import org.example.member.controller.MemberController;
 
 public class App {
     public App() {
-        DBConnection.DB_NAME = "proj1";
+        DBConnection.DB_NAME = "yaho";
         DBConnection.DB_USER = "root";
         DBConnection.DB_PASSWORD = "";
         DBConnection.DB_PORT = 3306;

@@ -4,6 +4,8 @@ import jdk.jshell.execution.Util;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Map;
+
 @Getter
 @Setter
 
@@ -12,7 +14,7 @@ public class Member {
     private String userId;
     private String password;
     private String gender;
-    private Util nowDateTime;
+    private String nowDateTime;
 
     public Member(int id, String userId, String password, String gender, String nowDateTime) {
         this.id = id;
@@ -20,8 +22,10 @@ public class Member {
         this.password = password;
         this.gender = gender;
     }
-
-//    public void setUserId(String userId) {
-//        this.userId = userId;
-//    }
+    public Member(Map<String, Object> row){
+        this.id = (int)row.get("id");
+        this.userId = (String)row.get("userId");
+        this.password = (String)row.get("password");
+        this.nowDateTime = (String)row.get("nowDateTime");
+    }
 }

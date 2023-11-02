@@ -1,0 +1,241 @@
+Index: src/main/java/org/example/member/repository/MemberRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.member.repository;\r\n\r\nimport org.example.Utill.Utill;\r\nimport org.example.member.entity.Member;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class MemberRepository {\r\n    List<Member> members = new ArrayList<>();\r\n\r\n    public MemberRepository(){\r\n        Member member1 = new Member(1, \"경현잉\", \"11\", Utill.nowDateTime());\r\n        members.add(member1);\r\n        Member member2 = new Member(2, \"병근잉\", \"11\", Utill.nowDateTime());\r\n        members.add(member2);\r\n        Member member3 = new Member(3, \"조은잉\", \"11\", Utill.nowDateTime());\r\n        members.add(member3);\r\n    }\r\n    public String signRepository(String userId, String password){\r\n        int id = 3;\r\n        Member member = new Member(id, userId, password, Utill.nowDateTime());\r\n        id++;\r\n        members.add(member);\r\n\r\n        return member.getUserId();\r\n    }\r\n    public Member findByUserIdRepository(String userId){\r\n        for (int i = 0; i < members.size(); i++) {\r\n            Member member = members.get(i);\r\n            if (member.getUserId().equals(userId)) {\r\n                return member;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/member/repository/MemberRepository.java b/src/main/java/org/example/member/repository/MemberRepository.java
+--- a/src/main/java/org/example/member/repository/MemberRepository.java	(revision 3dae09ccf24365c04dbfe2a318402599d0412392)
++++ b/src/main/java/org/example/member/repository/MemberRepository.java	(date 1698887151298)
+@@ -1,6 +1,8 @@
+ package org.example.member.repository;
+ 
++import org.example.DB.DBConnection;
+ import org.example.Utill.Utill;
++import org.example.entity.Container;
+ import org.example.member.entity.Member;
+ 
+ import java.util.ArrayList;
+@@ -8,8 +10,10 @@
+ 
+ public class MemberRepository {
+     List<Member> members = new ArrayList<>();
++    private DBConnection dbConnection;
+ 
+     public MemberRepository(){
++        dbConnection = Container.getDBconnection();
+         Member member1 = new Member(1, "경현잉", "11", Utill.nowDateTime());
+         members.add(member1);
+         Member member2 = new Member(2, "병근잉", "11", Utill.nowDateTime());
+@@ -18,9 +22,17 @@
+         members.add(member3);
+     }
+     public String signRepository(String userId, String password){
+-        int id = 3;
++
++        StringBuilder sb = new StringBuilder();
++        sb.append(String.format("INSERT INTO `member`"));
++        sb.append(String.format("SET nowDateTime = NOW(),"));
++        sb.append(String.format("userId = `%s`, ", userId));
++        sb.append(String.format("`password` = `%s` ", password));
++        int id = dbConnection.insert(sb.toString());
++
++
+         Member member = new Member(id, userId, password, Utill.nowDateTime());
+-        id++;
++
+         members.add(member);
+ 
+         return member.getUserId();
+Index: yaho_project_f/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/yaho_project_f/.idea/vcs.xml b/yaho_project_f/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1698883468408)
++++ b/yaho_project_f/.idea/vcs.xml	(date 1698883468408)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: yaho_project_f/.idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/yaho_project_f/.idea/compiler.xml b/yaho_project_f/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1698883468417)
++++ b/yaho_project_f/.idea/compiler.xml	(date 1698883468417)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="19" />
++  </component>
++</project>
+\ No newline at end of file
+Index: yaho_project_f/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/yaho_project_f/.idea/workspace.xml b/yaho_project_f/.idea/workspace.xml
+new file mode 100644
+--- /dev/null	(date 1698883468390)
++++ b/yaho_project_f/.idea/workspace.xml	(date 1698883468390)
+@@ -0,0 +1,67 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="9a7fe74c-8007-4699-96ce-93370e77c161" name="Changes" comment="" />
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="ExternalProjectsData">
++    <projectState path="$PROJECT_DIR$">
++      <ProjectState />
++    </projectState>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
++  </component>
++  <component name="ProjectColorInfo"><![CDATA[{
++  "associatedIndex": 7
++}]]></component>
++  <component name="ProjectId" id="2Xb2NZYsI4cceQiNP4dNSI3YjKP" />
++  <component name="ProjectViewState">
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "android.gradle.sync.needed": "true",
++    "git-widget-placeholder": "main",
++    "last_opened_file_path": "C:/yahoproj/ddd",
++    "onboarding.tips.debug.path": "C:/yahoproj/ddd/yaho_project_f/src/main/java/org/example/Main.java",
++    "vue.rearranger.settings.migration": "true"
++  }
++}]]></component>
++  <component name="RunManager">
++    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
++      <setting name="path" value="" />
++      <setting name="vmparams" value="" />
++      <setting name="params" value="" />
++      <setting name="workDir" value="file://$PROJECT_DIR$" />
++      <setting name="debug" value="false" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="9a7fe74c-8007-4699-96ce-93370e77c161" name="Changes" comment="" />
++      <created>1698883421108</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1698883421108</updated>
++      <workItem from="1698883422114" duration="40000" />
++    </task>
++    <servers />
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++</project>
+\ No newline at end of file
+Index: yaho_project_f/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/yaho_project_f/.idea/misc.xml b/yaho_project_f/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1698883468398)
++++ b/yaho_project_f/.idea/misc.xml	(date 1698883468398)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="FrameworkDetectionExcludesConfiguration">
++    <file type="web" url="file://$PROJECT_DIR$" />
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="corretto-19" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: yaho_project_f/.idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/yaho_project_f/.idea/gradle.xml b/yaho_project_f/.idea/gradle.xml
+new file mode 100644
+--- /dev/null	(date 1698883468431)
++++ b/yaho_project_f/.idea/gradle.xml	(date 1698883468431)
+@@ -0,0 +1,16 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleHome" value="" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++          </set>
++        </option>
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: yaho_project_f/.idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/yaho_project_f/.idea/jarRepositories.xml b/yaho_project_f/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	(date 1698883468441)
++++ b/yaho_project_f/.idea/jarRepositories.xml	(date 1698883468441)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="MavenRepo" />
++      <option name="name" value="MavenRepo" />
++      <option name="url" value="https://repo.maven.apache.org/maven2/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file
