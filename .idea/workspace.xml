@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdc51559-2f26-4b1e-8ad9-d525fad01e83" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/db.sql" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/yaho_project_f/.idea/compiler.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/yaho_project_f/.idea/gradle.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/yaho_project_f/.idea/jarRepositories.xml" afterDir="false" />
@@ -56,12 +57,8 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="work1" />
-                    <option name="lastUsedInstant" value="1698893375" />
-                  </RecentBranch>
-                  <RecentBranch>
                     <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1698893374" />
+                    <option name="lastUsedInstant" value="1698900189" />
                   </RecentBranch>
                 </list>
               </option>
@@ -79,6 +76,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2Xb6sOqhvbedPF1jZ0MaQcvOfgj" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -87,7 +87,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "work1",
+    "git-widget-placeholder": "main",
     "node.js.selected.package.tslint": "(autodetect)",
     "onboarding.tips.debug.path": "C:/Users/SBS/java/work/ddd/ddd/src/main/java/org/example/Main.java",
     "settings.editor.selected.configurable": "project.propCompiler"
@@ -105,11 +105,48 @@
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="work1" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="work1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
