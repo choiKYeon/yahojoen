@@ -1,6 +1,6 @@
 package org.example.member.repository;
 
-import org.example.Utill.Utill;
+import org.example.Util.Util;
 import org.example.member.entity.Member;
 
 import java.util.ArrayList;
@@ -10,16 +10,16 @@ public class MemberRepository {
     List<Member> members = new ArrayList<>();
 
     public MemberRepository(){
-        Member member1 = new Member(1, "경현잉", "11", Utill.nowDateTime());
+        Member member1 = new Member(1, "경현잉", "11","남자",  Util.nowDateTime());
         members.add(member1);
-        Member member2 = new Member(2, "병근잉", "11", Utill.nowDateTime());
+        Member member2 = new Member(2, "병근잉", "11","남자",  Util.nowDateTime());
         members.add(member2);
-        Member member3 = new Member(3, "조은잉", "11", Utill.nowDateTime());
+        Member member3 = new Member(3, "조은잉", "11","여자",  Util.nowDateTime());
         members.add(member3);
     }
-    public String signRepository(String userId, String password){
+    public String signRepository(String userId, String password, String gender){
         int id = 3;
-        Member member = new Member(id, userId, password, Utill.nowDateTime());
+        Member member = new Member(id, userId, password, gender, Util.nowDateTime());
         id++;
         members.add(member);
 

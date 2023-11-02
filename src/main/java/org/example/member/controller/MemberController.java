@@ -1,5 +1,6 @@
 package org.example.member.controller;
 
+import org.example.Util.Util;
 import org.example.entity.Container;
 import org.example.screenselect.MainScreen;
 import org.example.member.entity.Member;
@@ -11,6 +12,7 @@ public class MemberController {
 
     private static MainScreen mainScreen = new MainScreen();
     MemberService memberService = new MemberService();
+
     // 로그인
     public void login() {
         if (getCheckedmembers() != null) {
@@ -44,14 +46,15 @@ public class MemberController {
     // 회원가입
     public void sign() {
 
-        long id = 1;
+//        long id = 1;
         String userId;
         String password;
+        String gender;
         // 로그인 및 중복된 계정인지 확인하는 구문
         while (true) {
             System.out.print("새로운 아이디 : ");
             userId = Container.getSc().nextLine().trim();
-            boolean loginchecked = false;
+//            boolean loginchecked = false;
 
             Member member = memberService.findByUserId(userId);
 
@@ -77,7 +80,22 @@ public class MemberController {
             break;
         }
 
-        memberService.signService(userId, password);
+        while (true) {
+            System.out.print("성별 : ");
+            gender = Container.getSc().nextLine().trim();
+            switch (gender) {
+                case "남", "남자":
+                    break;
+                case "여", "여자":
+                    break;
+                default:
+                    System.out.println("성별을 다시 기입해 주세요.");
+                    continue;
+            }
+            break;
+        }
+
+        memberService.signService(userId, password, gender);
         System.out.println("회원가입이 완료되었습니다. 로그인을 진행해주세요.");
     }
 
@@ -86,7 +104,7 @@ public class MemberController {
         if (getCheckedmembers() != null) {
             setCheckedmembers(null);
             System.out.println("로그아웃 되었습니다.");
-        }else {
+        } else {
             System.out.println("로그아웃 상태입니다.");
         }
         return null;
